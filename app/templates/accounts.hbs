@@ -1,4 +1,4 @@
-<h2>Users</h2>
+<h2>Accounts</h2>
 <table>
   <thead>
     <th>Email Address</th>
@@ -13,9 +13,8 @@
     <tr>
       <td>{{name}}</td>
       <td>{{displayName}}</td>
-      <td>{{displayName}}</td>
       <td>{{zimbraAccountStatus}}</td>
-      <td>{{zimbraLastLogonTimestamp}}</td>
+      <td>{{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}</td>
       <td>{{description}}</td>
     </tr>
     {{/each}}

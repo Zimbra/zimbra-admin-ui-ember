@@ -75,19 +75,18 @@ var request = function(url, zimbraAuthToken, requestName, opts) {
   console.log(url_);
   
   var promise = new Ember.RSVP.Promise(function(resolve, reject) {
-    console.log("About to POST");
     Ember.$.ajax(url_, {
       type: 'POST',
       dataType: 'json',
       data: JSON.stringify(payload)
     }).then(
       function(res, textStatus, jqXHR) {
-        console.log("** ok", textStatus, res);
+        // console.log("** ok", textStatus, res);
         var responseName = requestName.replace('Request', 'Response');
         resolve(res.Body[responseName]);
       },
       function(jqXHR, textStatus, errThrown) {
-        console.log("** err", textStatus, errThrown, jqXHR);
+        // console.log("** err", textStatus, errThrown, jqXHR);
         reject(jqXHR.responseJSON.Body.Fault.Reason.Text);
       }
     );

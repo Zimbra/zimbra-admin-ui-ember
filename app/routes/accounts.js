@@ -9,6 +9,6 @@ export default Ember.Route.extend({
 	      first: "Mary",
 	      last: "Jane"
 	    }];*/
-	   return this.store.findAll('user');
+	   return this.store.findAll('account');
 	}
 });

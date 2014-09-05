@@ -23,9 +23,7 @@ export default DS.Model.extend({
   zimbraIsExternalVirtualAccount: DS.attr('boolean'),
   zimbraIsSystemAccount: DS.attr('boolean'),
   zimbraIsSystemResource: DS.attr('boolean'),
-  zimbraLastLogonTimestamp: DS.attr('date'),
+  zimbraLastLogonTimestamp: DS.attr('date-time-transform'),
   zimbraMailHost: DS.attr('string'),
   zimbraMailStatus: DS.attr('string')
 });
-
-

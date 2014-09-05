@@ -8,6 +8,7 @@ Router.map(function() {
   this.route('accounts');
   this.route('resources');
   this.route('distributionLists');
+  this.route('aliases');
 });
 
 export default Router;

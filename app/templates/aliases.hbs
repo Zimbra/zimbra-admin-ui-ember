@@ -1,0 +1,18 @@
+<h2>Aliases</h2>
+<table>
+  <thead>
+    <th>Email Address</th>
+    <th>Target Name</th>
+    <th>Target Type</th>
+    <th>Description</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{targetName}}</td>
+      <td>{{type}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}

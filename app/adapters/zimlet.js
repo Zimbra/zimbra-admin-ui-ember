@@ -20,24 +20,20 @@ var findQuery = function (store, type, query) {
     zimbra.auth(ZimbraEmberDataENV.zimbra.soap.adminUrl, ZimbraEmberDataENV.zimbra.admin.user, ZimbraEmberDataENV.zimbra.admin.pass, asAdmin).then(function(authRes) {
       var zimbraAuthToken = authRes.authToken[0]._content;
       var opts = {
-        applyConfig: false,
-        applyCos: false,
-        types: 'domains',
-        attrs: 'description,zimbraDomainName,zimbraDomainStatus,zimbraId,zimbraDomainType',
-        query: generateQuery(query)
+        exclude: generateExclude(query),
       };
-      return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:SearchDirectoryRequest', opts);
+      return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:GetAllZimletsRequest', opts);
     
     }).then(
       function(res) {
         // Flatten the JSON representation from JSONified Zimbra XML to something flatter and Ember Data friendly
-        _.each(res.domain, function(domain, index) {
-          _.each(domain.a, function(attr) {
-            domain[attr.n] = attr._content;
+        _.each(res.zimlet, function(zimlet, index) {
+          _.each(zimlet.a, function(attr) {
+            zimlet[attr.n] = attr._content;
           });
-          delete domain.a;
+          delete zimlet.a;
         });
-        resolve(res.domain);
+        resolve(res.zimlet);
         
       }, function(err) {
         reject(err);
@@ -49,10 +45,20 @@ var findQuery = function (store, type, query) {
 
 
 //
-// Translate Mongo-style Ember Data filter into LDAP-style Zimbra query.
+// Translate Mongo-style Ember Data filter into Zimbra GetAllZimletsRequest exclude attribute.
 //
-var generateQuery = function(filter) {
-  return '';
+var generateExclude = function(filter) {
+  if (!filter) {
+    return '';
+  }
+  var value = filter.zimbraZimpletIsExtension;
+  if (typeof(value) === 'undefined') {
+    return '';
+  } else if (value === true) {
+    return 'mail';
+  } else {
+    return 'extension';
+  }
 };
 
 

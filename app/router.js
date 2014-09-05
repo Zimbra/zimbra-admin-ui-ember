@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('domains');
   this.route('resources');
   this.route('servers');
+  this.route('zimlets');
 });
 
 export default Router;

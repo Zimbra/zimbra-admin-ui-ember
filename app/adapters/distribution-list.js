@@ -11,7 +11,7 @@ var findAll = function (store, type) {
 
 
 //
-// findQuery. Currently performs a client-side post-processing filter, for convenience.
+// findQuery
 //
 var findQuery = function (store, type, query) {
   var promise = new Ember.RSVP.Promise(function(resolve, reject) {

@@ -1,0 +1,20 @@
+<h2>Zimlets</h2>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Display Name</th>
+    <th>Description</th>
+    <th>Version</th>
+    <th>Status</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{displayName}}</td>
+      <td>{{description}}</td>
+      <td>{{version}}</td>
+      <td>{{#if enabled}}Enabled{{else}}Disabled{{/if}}</td>
+    </tr>
+    {{/each}}

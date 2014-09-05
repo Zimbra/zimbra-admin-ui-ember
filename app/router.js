@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('distributionLists');
   this.route('domains');
   this.route('resources');
+  this.route('servers');
 });
 
 export default Router;

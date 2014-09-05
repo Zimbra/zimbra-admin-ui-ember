@@ -6,10 +6,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('accounts');
-  this.route('resources');
-  this.route('distributionLists');
   this.route('aliases');
+  this.route('coses');
+  this.route('distributionLists');
   this.route('domains');
+  this.route('resources');
 });
 
 export default Router;

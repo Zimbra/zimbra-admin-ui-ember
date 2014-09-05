@@ -1,0 +1,20 @@
+<h2>Distribution Lists</h2>
+<table>
+  <thead>
+    <th>Email Address</th>
+    <th>Display Name</th>
+    <th>Status</th>
+    <th>Last Login</th>
+    <th>Description</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{displayName}}</td>
+      <td>{{zimbraMailStatus}}</td>
+      <td>{{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}

@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('accounts');
   this.route('resources');
+  this.route('distributionLists');
 });
 
 export default Router;

@@ -27,13 +27,15 @@ var findQuery = function (store, type, query) {
     }).then(
       function(res) {
         // Flatten the JSON representation from JSONified Zimbra XML to something flatter and Ember Data friendly
-        _.each(res.zimlet, function(zimlet, index) {
-          _.each(zimlet.a, function(attr) {
-            zimlet[attr.n] = attr._content;
+        if (res.zimlet) {
+          _.each(res.zimlet, function(zimlet, index) {
+            _.each(zimlet.a, function(attr) {
+              zimlet[attr.n] = attr._content;
+            });
+            delete zimlet.a;
           });
-          delete zimlet.a;
-        });
-        resolve(res.zimlet);
+        }
+        resolve(res.zimlet || []);
         
       }, function(err) {
         reject(err);
@@ -51,7 +53,7 @@ var generateExclude = function(filter) {
   if (!filter) {
     return '';
   }
-  var value = filter.zimbraZimpletIsExtension;
+  var value = filter.zimbraZimletIsExtension;
   if (typeof(value) === 'undefined') {
     return '';
   } else if (value === true) {

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('resources');
   this.route('servers');
   this.route('zimlets');
+  this.route('extensions');
 });
 
 export default Router;

@@ -17,11 +17,11 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 app.import({
-  development: 'bower_components/underscore/underscore.js',
-  production: 'bower_components/underscore/underscore-min.js'
+  development: 'bower_components/lodash/dist/lodash.js',
+  production: 'bower_components/lodash/dist/lodash.min.js'
 }, {
   exports: {
-    'underscore': ['default']
+    'lodash': ['default']
   }
 });
 

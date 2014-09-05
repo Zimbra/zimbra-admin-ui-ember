@@ -5,6 +5,16 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    zimbra: {
+      soap: {
+        adminUrl: 'https://localhost:7071/service/admin',
+    	  userUrl: 'http://localhost:7070/service'
+    	},
+    	admin: {
+    	  user: 'admin',
+    	  pass: 'test123'
+    	}
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -1,7 +1,7 @@
 {
   "name": "zimbra-ember-data",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -15,8 +15,8 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "David Rauschenbach <drauschenbach@zimbra.com>",
+  "license": "GPLv2",
   "devDependencies": {
     "body-parser": "^1.2.0",
     "broccoli-asset-rev": "0.0.17",

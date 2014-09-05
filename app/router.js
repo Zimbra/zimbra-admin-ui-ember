@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('resources');
   this.route('distributionLists');
   this.route('aliases');
+  this.route('domains');
 });
 
 export default Router;

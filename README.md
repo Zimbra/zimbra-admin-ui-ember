@@ -1,6 +1,13 @@
 # zimbra-ember-data
 
-This module provides an Ember Data front-end to the Zimbra SOAP APIs.
+This module provides an Ember Data front-end to the Zimbra SOAP APIs. Its purpose is to make it easy to
+perform administrative integrations with Zimbra, from my favorite MVC framework.
+
+## Goals
+
+* Use [Ember CLI](http://www.ember-cli.com) for project scaffolding and [Bower](http://bower.io/)-based dependency management.
+* Provide Ember Data models and SOAP-based Adapter for common tasks, such as managing users and aliases.
+* Provide a minimal adaptive UI and routes to exercise the data layer, and for use by others kicking off new projects.
 
 ## Prerequisites
 

@@ -1,4 +1,21 @@
 <h2>Users</h2>
-{{#each this}}
-<li>{{id}} {{name}}</li>
-{{/each}}
+<table>
+  <thead>
+    <th>Email Address</th>
+    <th>Display Name</th>
+    <th>Status</th>
+    <th>Last Login</th>
+    <th>Description</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{displayName}}</td>
+      <td>{{displayName}}</td>
+      <td>{{zimbraAccountStatus}}</td>
+      <td>{{zimbraLastLogonTimestamp}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}

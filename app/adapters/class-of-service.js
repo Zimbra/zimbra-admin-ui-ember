@@ -2,7 +2,20 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
 
-  
+
+//
+// find 
+//
+var find = function (store, type, id) {
+  var promise = new Ember.RSVP.Promise(function(resolve, reject) {
+    findQuery(store, type, {id:id}).then(function(res) {
+      resolve(res[0]);
+    });
+  });
+  return promise;
+};
+
+
 //
 // findAll 
 //
@@ -37,7 +50,8 @@ var findQuery = function (store, type, query) {
           });
           delete cos.a;
         });
-        resolve(res.cos);
+        var result = _.isEmpty(query) ? res.cos : _.filter(res.cos, query);
+        resolve(result);
         
       }, function(err) {
         reject(err);
@@ -57,6 +71,7 @@ var generateQuery = function(filter) {
 
 
 export default DS.Adapter.extend({
+  find: find,
   findAll: findAll,
   findQuery: findQuery
 });

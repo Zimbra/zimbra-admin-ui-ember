@@ -5,7 +5,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('accounts');
+  this.resource('accounts');
+  this.route('account', {path:'/account/:account_id'});
   this.route('aliases');
   this.route('coses');
   this.route('distributionLists');

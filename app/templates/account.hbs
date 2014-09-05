@@ -1,0 +1,83 @@
+<h2>Account</h2>
+<div>{{displayName}}</div>
+<div>Email: {{name}}</div>
+<div>Quota: ? of {{zimbraMailQuota}}</div>
+
+<div>ID: {{id}}</div>
+<div>Created: {{moment-format created format="fromNow" defaultValue="Never logged in"}} ({{created}})</div>
+<div>Server: {{zimbraMailHost}}</div>
+<div>Status: {{zimbraMailStatus}}</div>
+<div>Last Login: {{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}} (at {{moment-format zimbraLastLogonTimestamp format="hh:mm a"}})</div>
+
+<hr/>
+
+<table>
+  <tr>
+    <td>Account name:</td>
+    <td>
+      {{input value=uid}}
+      @{{view Ember.Select content=domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>First name:</td>
+    <td>{{input value=givenName}}</td>
+  </tr>
+  
+  <tr>
+    <td>Middle initial:</td>
+    <td>{{input value=initials}}</td>
+  </tr>
+  
+  <tr>
+    <td>Last name:</td>
+    <td>{{input value=sn}}</td>
+  </tr>
+  
+  <tr>
+    <td>Display name:</td>
+    <td>{{input value=displayName}}</td>
+  </tr>
+  
+  <tr>
+    <td>Hide in GAL:</td>
+    <td>{{input type="checkbox" checked=zimbraHideInGal}}</td>
+  </tr>
+</table>
+
+<hr/>
+
+<table>
+  <tr>
+    <td>Status:</td>
+    <td>{{input value=zimbraMailStatus}}</td>
+  </tr>
+  
+  <tr>
+    <td>Class of Service:</td>
+    <td>
+      {{view Ember.Select content=coses selection=zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name"}}
+      {{input type="checkbox" checked=cosAuto}} Auto
+    </td>
+  </tr>
+  
+  <tr>
+    <td>Global Administrator:</td>
+    <td>{{input type="checkbox" checked=zimbraIsAdminAccount}}</td>
+  </tr>
+</table>
+
+<hr/>
+
+<table>
+  <tr>
+    <td>Description:</td>
+    <td>{{input value=description}}</td>
+  </tr>
+  
+  <tr>
+    <td>Notes:</td>
+    <td>{{textarea value=notes}}</td>
+  </tr>
+</table>

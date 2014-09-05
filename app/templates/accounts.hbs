@@ -11,7 +11,7 @@
   <tbody>
     {{#each this}}
     <tr>
-      <td>{{name}}</td>
+      <td>{{#link-to "account" this}}{{name}}{{/link-to}}</td>
       <td>{{displayName}}</td>
       <td>{{zimbraAccountStatus}}</td>
       <td>{{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}</td>

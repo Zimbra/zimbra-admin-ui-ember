@@ -9,6 +9,21 @@ var findAll = function (store, type) {
   return findQuery(store, type, {});
 };
 
+var attrs = [
+  'description',
+  'displayName',
+  'uid',
+  'zimbraAccountStatus',
+  'zimbraCalResType',
+  'zimbraId',
+  'zimbraIsAdminAccount',
+  'zimbraIsDelegatedAdminAccount',
+  'zimbraIsExternalVirtualAccount',
+  'zimbraIsSystemAccount',
+  'zimbraIsSystemResource',
+  'zimbraCreateTimestamp',
+  'zimbraMailHost'
+];
 
 //
 // findQuery
@@ -22,7 +37,7 @@ var findQuery = function (store, type, query) {
         applyConfig: false,
         applyCos: false,
         types: 'resources',
-        attrs: 'displayName,zimbraId,zimbraMailHost,uid,zimbraAccountStatus,description,zimbraCalResType,zimbraIsDelegatedAdminAccount,zimbraIsAdminAccount,zimbraIsSystemResource,zimbraIsSystemAccount,zimbraIsExternalVirtualAccount',
+        attrs: attrs.join(','),
         query: generateQuery(query)
       };
       return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:SearchDirectoryRequest', opts);

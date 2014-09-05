@@ -2,12 +2,11 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
 
-  
 //
 // findAll 
 //
 var findAll = function (store, type) {
-	return findQuery(store, type, {});
+  return findQuery(store, type, {});
 };
 
 
@@ -22,8 +21,8 @@ var findQuery = function (store, type, query) {
       var opts = {
         applyConfig: false,
         applyCos: false,
-        types: 'accounts',
-        // attrs: 'displayName,zimbraId,zimbraAliasTargetId,cn,sn,zimbraMailHost,uid,zimbraCOSId,zimbraAccountStatus,zimbraLastLogonTimestamp,description,zimbraIsSystemAccount,zimbraIsDelegatedAdminAccount,zimbraIsAdminAccount,zimbraIsSystemResource,zimbraAuthTokenValidityValue,zimbraIsExternalVirtualAccount,zimbraMailStatus,zimbraIsAdminGroup,zimbraCalResType,zimbraDomainType,zimbraDomainName,zimbraDomainStatus,zimbraIsDelegatedAdminAccount,zimbraIsAdminAccount,zimbraIsSystemResource,zimbraIsSystemAccount,zimbraIsExternalVirtualAccount',
+        types: 'resources',
+        attrs: 'displayName,zimbraId,zimbraMailHost,uid,zimbraAccountStatus,description,zimbraCalResType,zimbraIsDelegatedAdminAccount,zimbraIsAdminAccount,zimbraIsSystemResource,zimbraIsSystemAccount,zimbraIsExternalVirtualAccount',
         query: generateQuery(query)
       };
       return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:SearchDirectoryRequest', opts);
@@ -31,13 +30,13 @@ var findQuery = function (store, type, query) {
     }).then(
       function(res) {
         // Flatten the JSON representation from JSONified Zimbra XML to something flatter and Ember Data friendly
-        _.each(res.account, function(account, index) {
-          _.each(account.a, function(attr) {
-            account[attr.n] = attr._content;
+        _.each(res.calresource, function(resource, index) {
+          _.each(resource.a, function(attr) {
+            resource[attr.n] = attr._content;
           });
-          delete account.a;
+          delete resource.a;
         });
-        resolve(res.account);
+        resolve(res.calresource);
         
       }, function(err) {
         reject(err);

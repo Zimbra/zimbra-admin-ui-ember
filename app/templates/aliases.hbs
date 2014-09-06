@@ -11,7 +11,7 @@
     {{#each this}}
     <tr>
       <td>{{name}}</td>
-      <td>{{targetName}}</td>
+      <td>{{#link-to "account" zimbraAliasTargetId}}{{targetName}}{{/link-to}}</td>
       <td>{{type}}</td>
       <td>{{description}}</td>
     </tr>

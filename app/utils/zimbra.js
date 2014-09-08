@@ -37,7 +37,7 @@ var auth = function(soapUrl, user, password, admin) {
 };
 
 
-var generateSoapHeader = function(zimbraAuthToken) {
+var generateSoapHeader = function(zimbraAuthToken, extraSoapHeaders) {
   var header = {
     context: {
       _jsns: 'urn:zimbra',
@@ -49,12 +49,14 @@ var generateSoapHeader = function(zimbraAuthToken) {
   if (zimbraAuthToken) {
     header.context.authToken = zimbraAuthToken;
   }
+  if (extraSoapHeaders) {
+    _.assign(header.context, extraSoapHeaders);
+  }
   return header;
 };
 
 
-var request = function(url, zimbraAuthToken, requestName, opts) {
-  console.debug('request', requestName, opts);
+var request = function(url, zimbraAuthToken, requestName, opts, extraSoapHeaders) {
   var parts = requestName.split(':');
   var requestUrn;
   if(parts.length === 2) {
@@ -65,7 +67,7 @@ var request = function(url, zimbraAuthToken, requestName, opts) {
   }
   
   var payload = {
-    Header: generateSoapHeader(zimbraAuthToken),
+    Header: generateSoapHeader(zimbraAuthToken, extraSoapHeaders),
     Body: {}
   };
   payload.Body[requestName] = opts || {};

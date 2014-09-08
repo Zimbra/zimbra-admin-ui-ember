@@ -32,22 +32,36 @@ var findQuery = function (store, type, query) {
     var asAdmin = true;
     zimbra.auth(ZimbraEmberDataENV.zimbra.soap.adminUrl, ZimbraEmberDataENV.zimbra.admin.user, ZimbraEmberDataENV.zimbra.admin.pass, asAdmin).then(function(authRes) {
       var zimbraAuthToken = authRes.authToken[0]._content;
-      var opts = {
-        applyConfig: false,
-        attrs: 'description,zimbraServiceHostname,zimbraId',
+      var extraSoapHeaders = {
+        targetServer: query.server
       };
-      return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:GetAllServersRequest', opts);
+      var opts = {
+        accountListOffset: 0,
+        accountListCount: 0,
+        accountListStatus: 'NONE',
+        backupListOffset: 0,
+        backupListCount: 50,
+        query: {
+          _attrs: {
+            target: '/opt/zimbra/backup'
+          }
+        },
+        type: 'server'
+      };
+      return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:BackupQueryRequest', opts, extraSoapHeaders);
     
     }).then(
       function(res) {
         // Flatten the JSON representation from JSONified Zimbra XML to something flatter and Ember Data friendly
-        _.each(res.server, function(server, index) {
-          _.each(server.a, function(attr) {
-            server[attr.n] = attr._content;
-          });
-          delete server.a;
+        _.each(res.backup, function(backup, index) {
+          backup.accountsCompleted = backup.accounts[0].completionCount;
+          backup.accountsErrors = backup.accounts[0].errorCount;
+          backup.accountsTotal = backup.accounts[0].total;
+          backup.id = backup.label;
+          backup.server = query.server;
+          delete backup.label;
         });
-        resolve(res.server);
+        resolve(res.backup);
         
       }, function(err) {
         reject(err);

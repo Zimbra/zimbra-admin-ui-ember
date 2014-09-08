@@ -25,5 +25,10 @@ tr:nth-child(even) {
 
 tr:hover {
   background-color: rgb(227,218,147);
-  border: 1px solid rgb(227,218,147);
+  border-bottom: 1px solid rgb(227,218,147);
+  border-top: 1px solid rgb(227,218,147);
+}
+
+td {
+  padding: 0 2px;
 }

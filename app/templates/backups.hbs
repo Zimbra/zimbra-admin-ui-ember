@@ -1,0 +1,20 @@
+<h2>Backups</h2>
+<table>
+  <thead>
+    <th>Server</th>
+    <th>Label</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Status</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{server.name}}</td>
+      <td>{{label}}</td>
+      <td>{{moment-format start}}</td>
+      <td>{{moment-format end}}</td>
+      <td>{{Status}}</td>
+    </tr>
+    {{/each}}

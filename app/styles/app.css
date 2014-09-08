@@ -5,3 +5,25 @@ html, body {
 .navbar-brand {
   max-width: 80%;
 }
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: rgb(185,185,185);
+}
+
+tr {
+  border-bottom: 1px solid rgb(235,235,235);
+  border-top: 1px solid rgb(252,252,252);
+}
+
+tr:nth-child(even) {
+  background-color: rgb(242,242,242);
+}
+
+tr:hover {
+  background-color: rgb(227,218,147);
+  border: 1px solid rgb(227,218,147);
+}

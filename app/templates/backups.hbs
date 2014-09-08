@@ -13,8 +13,10 @@
     <tr>
       <td>{{server.name}}</td>
       <td>{{label}}</td>
-      <td>{{moment-format start}}</td>
-      <td>{{moment-format end}}</td>
+      <td>{{moment-format start format="lll"}}</td>
+      <td>{{moment-format end format="lll"}}</td>
       <td>{{Status}}</td>
     </tr>
     {{/each}}
+  </tbody>
+</table>

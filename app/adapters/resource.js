@@ -22,7 +22,8 @@ var attrs = [
   'zimbraIsSystemAccount',
   'zimbraIsSystemResource',
   'zimbraCreateTimestamp',
-  'zimbraMailHost'
+  'zimbraMailHost',
+  'zimbraNotes'
 ];
 
 //

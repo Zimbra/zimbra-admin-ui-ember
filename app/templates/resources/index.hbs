@@ -1,0 +1,26 @@
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li class="active">Resources</li>
+</ol>
+
+<table>
+  <thead>
+    <th>&nbsp;</th>
+    <th>Email Address</th>
+    <th>Display Name</th>
+    <th>Status</th>
+    <th>Description</th>
+  </thead>
+  
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td>{{resource-icon zimbraCalResType}}</td>
+      <td>{{#link-to "resources.resource" this}}{{name}}{{/link-to}}</td>
+      <td>{{displayName}}</td>
+      <td>{{zimbraAccountStatus}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

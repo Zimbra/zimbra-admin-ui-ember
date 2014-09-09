@@ -14,7 +14,9 @@ Router.map(function() {
   this.route('distributionLists');
   this.route('domains');
   this.route('extensions');
-  this.route('resources');
+  this.resource('resources', function() {
+    this.route('resource', {path:'/:resource_id'});
+  });
   this.route('servers');
   this.route('zimlets');
 });

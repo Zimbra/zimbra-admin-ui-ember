@@ -20,7 +20,9 @@ Router.map(function() {
     this.route('resource', {path:'/:resource_id'});
   });
   this.resource('servers', function() {
-    this.route('server', {path:'/:server_id'});
+    this.resource('servers.server', {path:'/:server_id'}, function() {
+      this.route('services');
+    });
   });
   this.route('zimlets');
 });

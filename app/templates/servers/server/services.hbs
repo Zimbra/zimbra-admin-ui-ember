@@ -1,0 +1,90 @@
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li>{{#link-to "servers"}}Servers{{/link-to}}</li>
+  <li>{{#link-to "servers.server"}}{{name}}{{/link-to}}</li>
+</ol>
+
+<ul class="nav nav-pills">
+  <li>{{#link-to "servers.server.index" this}}General Information{{/link-to}}</li>
+  <li class="active">{{#link-to "servers.server.services" this}}Services{{/link-to}}</li>
+</ul>
+
+<br/>
+
+<form class="panel panel-default">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-tasks"/>
+    {{name}}
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="input-group">
+          <span class="input-group-addon">ID</span>
+          {{id}}
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Created</span>
+          {{moment-format created format="fromNow"}}
+          ({{moment-format created format="lll"}})
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="panel panel-default">
+  <div class="panel-heading">Enabled Services</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">LDAP</span>
+      {{input type="checkbox" checked=zimbraServiceEnabled.ldap}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Mailbox</span>
+      {{input type="checkbox" checked=zimbraServiceEnabled.mailbox}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Reverse proxy</span>
+      {{input type="checkbox" disabled=true}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">MTA</span>
+      {{input type="checkbox" checked=zimbraServiceEnabled.mta}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Policyd</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">SNMP</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Anti-Spam</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Anti-Virus</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Spell Checker</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Logger</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">VMware HA Heartbeat</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">DomainKeys Identified Mail</span>
+      {{input type="checkbox" disabled=true}} <!-- TODO what's the checked=zimbraServiceEnabled.key? -->
+    </div>
+  </div>
+</form>

@@ -21,6 +21,7 @@ Router.map(function() {
   });
   this.resource('servers', function() {
     this.resource('servers.server', {path:'/:server_id'}, function() {
+      this.route('mta');
       this.route('services');
     });
   });

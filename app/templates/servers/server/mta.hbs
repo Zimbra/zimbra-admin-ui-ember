@@ -1,0 +1,101 @@
+<ol class="breadcrumb">
+  <li>{{#link-to "index"}}Home{{/link-to}}</li>
+  <li>{{#link-to "servers"}}Servers{{/link-to}}</li>
+  <li>{{#link-to "servers.server"}}{{name}}{{/link-to}}</li>
+</ol>
+
+<ul class="nav nav-pills">
+  <li>{{#link-to "servers.server.index" this}}General Information{{/link-to}}</li>
+  <li>{{#link-to "servers.server.services" this}}Services{{/link-to}}</li>
+  <li class="active">{{#link-to "servers.server.mta" this}}MTA{{/link-to}}</li>
+</ul>
+
+<br/>
+
+<form class="panel panel-default">
+  <div class="panel-heading">
+    <span class="glyphicon glyphicon-tasks"/>
+    {{name}}
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="input-group">
+          <span class="input-group-addon">ID</span>
+          {{id}}
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Created</span>
+          {{moment-format created format="fromNow"}}
+          ({{moment-format created format="lll"}})
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="panel panel-default">
+  <div class="panel-heading">Authentication</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Enable authentication</span>
+      {{input type="checkbox" checked=zimbraMtaSaslAuthEnable}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">TLS authentication only</span>
+      {{input type="checkbox" checked=zimbraMtaTlsAuthOnly}}
+    </div>
+  </div>
+</form>
+
+
+<form class="panel panel-default">
+  <div class="panel-heading">Network</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Web mail MTA Port</span>
+      {{input value=zimbraSmtpPort}}
+    </div>
+    <div class="input-group"> 
+      <span class="input-group-addon">Relay MTA for external delivery</span>
+      {{input value=zimbraMtaRelayHostServer}} {{input value=zimbraMtaRelayHostPort}}
+    </div>
+    <div class="input-group"> 
+      <span class="input-group-addon">Relay MTA for external delivery (fallback)</span>
+      {{input value=zimbraMtaFallbackRelayHostServer}} {{input value=zimbraMtaFallbackRelayHostPort}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Web mail MTA timeout (secs)</span>
+      {{input value=zimbraSmtpTimeout}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">MTA trusted networks</span>
+      {{textarea value=zimbraMtaMyNetworks}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Enable DNS lookups</span>
+      {{input type="checkbox" checked=zimbraMtaDnsLookupsEnabled}}
+    </div>
+  </div>
+</form>
+
+
+<form class="panel panel-default">
+  <div class="panel-heading">Milter Server</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Enable milter server</span>
+      {{input type="checkbox" checked=zimbraMilterServerEnabled}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Milter server bind address</span>
+      {{input value=zimbraMilterBindAddress}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Milter server bind port</span>
+      7026
+    </div>
+  </div>
+</form>

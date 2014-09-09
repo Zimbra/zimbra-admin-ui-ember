@@ -2,13 +2,6 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
 
-//
-// findAll 
-//
-var findAll = function (store, type) {
-  return findQuery(store, type, {});
-};
-
 var attrs = [
   'description',
   'displayName',
@@ -25,6 +18,13 @@ var attrs = [
   'zimbraMailHost',
   'zimbraNotes'
 ];
+
+//
+// findAll 
+//
+var findAll = function (store, type) {
+  return findQuery(store, type, {});
+};
 
 //
 // findQuery

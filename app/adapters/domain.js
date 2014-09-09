@@ -2,6 +2,20 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
 
+var attrs = [
+  'description',
+  'zimbraCreateTimestamp',
+  'zimbraDNSCheckHostname',
+  'zimbraDomainName',
+  'zimbraDomainStatus',
+  'zimbraDomainType',
+  'zimbraId',
+  'zimbraNotes',
+  'zimbraPrefTimeZoneId',
+  'zimbraPublicServiceHostname',
+  'zimbraPublicServicePort',
+  'zimbraPublicServiceProtocol'
+];
   
 //
 // findAll 
@@ -23,7 +37,7 @@ var findQuery = function (store, type, query) {
         applyConfig: false,
         applyCos: false,
         types: 'domains',
-        attrs: 'description,zimbraDomainName,zimbraDomainStatus,zimbraId,zimbraDomainType',
+        attrs: attrs.join(','),
         query: generateQuery(query)
       };
       return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:SearchDirectoryRequest', opts);

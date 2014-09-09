@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('backups');
   this.route('coses');
   this.route('distributionLists');
-  this.route('domains');
+  this.resource('domains', function() {
+    this.route('domain', {path:'/:domain_id'});
+  });
   this.route('extensions');
   this.resource('resources', function() {
     this.route('resource', {path:'/:resource_id'});

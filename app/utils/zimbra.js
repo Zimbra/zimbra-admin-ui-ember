@@ -23,7 +23,7 @@ var auth = function(soapUrl, user, password, admin) {
       data: payload,
     }).then(
       function(res, textStatus, jqXHR) {
-        console.debug("Authenticated", JSON.stringify(res.Body.AuthResponse));
+        // console.debug("Authenticated", JSON.stringify(res.Body.AuthResponse));
         resolve(res.Body.AuthResponse);
       },
       function(jqXHR, textStatus, errorThrown) {
@@ -72,9 +72,9 @@ var request = function(url, zimbraAuthToken, requestName, opts, extraSoapHeaders
   };
   payload.Body[requestName] = opts || {};
   payload.Body[requestName]._jsns = 'urn:' + requestUrn;
-  console.log(JSON.stringify(payload));
+  // console.log(JSON.stringify(payload));
   var url_ = url + '/soap/' + requestName;
-  console.log(url_);
+  console.log('POST', url_);
   
   var promise = new Ember.RSVP.Promise(function(resolve, reject) {
     Ember.$.ajax(url_, {

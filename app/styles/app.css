@@ -29,6 +29,6 @@ tr:hover {
   border-top: 1px solid rgb(227,218,147);
 }
 
-td {
+th, td {
   padding: 0 2px;
 }

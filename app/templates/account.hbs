@@ -9,36 +9,34 @@
     <span class="glyphicon glyphicon-user"></span>
     {{displayName}}
   </div>
-  <div class="panel-body>
-    <div class="row">
-      <div class="input-group">
-        <span class="input-group-addon">Email:</span>
-        {{name}}
-      </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Email</span>
+      {{name}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Quota:</span>
+      <span class="input-group-addon">Quota</span>
       ? of {{zimbraMailQuota}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">ID:</span>
+      <span class="input-group-addon">ID</span>
       {{id}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Created:</span>
+      <span class="input-group-addon">Created</span>
       {{moment-format created format="fromNow" defaultValue="Never logged in"}}
-      ({{created}})</div>
+      ({{created}})
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Server:</span>
+      <span class="input-group-addon">Server</span>
       {{zimbraMailHost}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Status:</span>
+      <span class="input-group-addon">Status</span>
       {{zimbraMailStatus}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Last Login:</span>
+      <span class="input-group-addon">Last Login</span>
       {{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}
       (at {{moment-format zimbraLastLogonTimestamp format="hh:mm a"}})
     </div>
@@ -47,89 +45,63 @@
 
 <form class="panel panel-default">
   <div class="panel-heading">Account Name</div>
-  <div class="panel-body>
-    <div class="row">
-      <div class="input-group">
-        <span class="input-group-addon">Account name:</span>
-        {{input value=uid}}
-        @{{view Ember.Select content=domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
-      </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Account name</span>
+      {{input value=uid}}
+      @{{view Ember.Select content=domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="input-group">
-          <span class="input-group-addon">First name:</span>
-          {{input value=givenName}}
-        </div>
-      </div>
+    <div class="input-group">
+      <span class="input-group-addon">First name</span>
+      {{input value=givenName}}
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="input-group">
-          <span class="input-group-addon">Middle initial:</span>
-          {{input value=initials}}
-        </div>
-      </div>
+    <div class="input-group">
+      <span class="input-group-addon">Middle initial</span>
+      {{input value=initials}}
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="input-group">
-          <span class="input-group-addon">Last name:</span>
-          {{input value=sn}}
-        </div>
-      </div>
+    <div class="input-group">
+      <span class="input-group-addon">Last name</span>
+      {{input value=sn}}
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="input-group">
-          <span class="input-group-addon">Display name:</span>
-          {{input value=displayName}}
-        </div>
-      </div>
+    <div class="input-group">
+      <span class="input-group-addon">Display name</span>
+      {{input value=displayName}}
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="input-group">
-          <span class="input-group-addon">Hide in GAL:</span>
-          {{input type="checkbox" checked=zimbraHideInGal}}
-        </div>
-      </div>
+    <div class="input-group">
+      <span class="input-group-addon">Hide in GAL</span>
+      {{input type="checkbox" checked=zimbraHideInGal}}
     </div>
   </div>
 </form>
 
 <div class="panel panel-default">
   <div class="panel-heading">Account Setup</div>
-  <div class="panel-body>
-    <div class="row">
-      <div class="input-group">
-        <span class="input-group-addon">Status:</span>
-        {{input value=zimbraMailStatus}}
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon">Class of Service:</span>
-        {{view Ember.Select content=coses selection=zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name"}}
-        {{input type="checkbox" checked=cosAuto}} Auto
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon">Global Administrator:</span>
-        {{input type="checkbox" checked=zimbraIsAdminAccount}}
-      </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Status</span>
+      {{input value=zimbraMailStatus}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Class of Service</span>
+      {{view Ember.Select content=coses selection=zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name"}}
+      {{input type="checkbox" checked=cosAuto}} Auto
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Global Administrator</span>
+      {{input type="checkbox" checked=zimbraIsAdminAccount}}
     </div>
   </div>
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Account Setup</div>
-  <div class="panel-body>
-    <div class="row">
-      <div class="input-group">
-        <span class="input-group-addon">Description:</span>
-        {{textarea value=description}}
-      </div>
+  <div class="panel-heading">Notes</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Description</span>
+      {{textarea value=description}}
     </div>
     <div class="input-group">
-      <span class="input-group-addon">Notes:</span>
+      <span class="input-group-addon">Notes</span>
       {{textarea value=notes}}
     </div>
   </div>

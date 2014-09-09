@@ -16,7 +16,26 @@ export default DS.Model.extend({
   start: DS.attr('date'),
   type: DS.attr('string'),
   
+  errors: DS.hasMany('backup-error'),
   server: DS.belongsTo('server'),
   
-  label: Ember.computed.alias('id')
+  label: Ember.computed.alias('id'),
+  
+  status: function() {
+    var errorCount = this.get('errors.length');
+    if (errorCount > 0) {
+      return 'completed with errors';
+    } 
+    return 'completed';
+  }.property('errors.length'),
+  
+  hasErrors: function() {
+    var errorCount = this.get('errors.length');
+    return errorCount > 0;
+  }.property('errors.length'),
+  
+  isSuccess: function() {
+    var errorCount = this.get('errors.length');
+    return errorCount === 0;
+  }.property('errors.length'),
 });

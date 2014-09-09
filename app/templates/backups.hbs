@@ -21,7 +21,7 @@
       <td>{{label}}</td>
       <td>{{moment-format start format="lll"}}</td>
       <td>{{moment-format end format="lll"}}</td>
-      <td>{{Status}}</td>
+      <td><span {{bind-attr class=":label hasErrors:label-danger hasWarnings:label-warning isSuccess:label-success"}}>{{status}}</span></td>
     </tr>
     {{/each}}
   </tbody>

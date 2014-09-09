@@ -60,6 +60,17 @@ var findQuery = function (store, type, query) {
           backup.id = backup.label;
           backup.server = query.server;
           delete backup.label;
+          
+          backup.errors = [];
+          _.each(backup.error, function(err, index) {
+            var backupError = store.createRecord('backup-error', {
+              id: index,
+              message: err.errorMessage,
+              exception: err._content
+            });
+            backup.errors.push(backupError);
+          });
+          delete backup.error;
         });
         resolve(res.backup);
         

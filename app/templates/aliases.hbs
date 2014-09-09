@@ -5,6 +5,7 @@
 
 <table>
   <thead>
+    <th>&nbsp;</th>
     <th>Email Address</th>
     <th>Target Name</th>
     <th>Target Type</th>
@@ -14,6 +15,7 @@
   <tbody>
     {{#each this}}
     <tr>
+      <td><span class="glyphicon glyphicon-circle-arrow-right"/>
       <td>{{name}}</td>
       <td>{{#link-to "accounts.account" zimbraAliasTargetId}}{{targetName}}{{/link-to}}</td>
       <td>{{type}}</td>

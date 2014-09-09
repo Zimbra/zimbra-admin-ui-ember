@@ -74,7 +74,7 @@ var request = function(url, zimbraAuthToken, requestName, opts, extraSoapHeaders
   payload.Body[requestName]._jsns = 'urn:' + requestUrn;
   // console.log(JSON.stringify(payload));
   var url_ = url + '/soap/' + requestName;
-  console.log('POST', url_);
+  console.log('POST', url_, payload);
   
   var promise = new Ember.RSVP.Promise(function(resolve, reject) {
     Ember.$.ajax(url_, {

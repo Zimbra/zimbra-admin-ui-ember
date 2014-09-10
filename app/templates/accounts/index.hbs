@@ -3,6 +3,12 @@
   <li class="active">Accounts</li>
 </ol>
 
+{{#if searchFor}}
+<div class="alert alert-info" role="alert">
+  <span class="badge">{{searchResult.length}}</span> accounts match your search.
+</div>
+{{/if}}
+
 <table>
   <thead>
     <th>&nbsp;</th>
@@ -14,7 +20,7 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each searchResult}}
     <tr>
       <td><span class="glyphicon glyphicon-user"/>
       <td>{{#link-to "accounts.account" this}}{{name}}{{/link-to}}</td>

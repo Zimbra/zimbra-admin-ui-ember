@@ -1,0 +1,28 @@
+{{partial "settings/-breadcrumbs"}}
+{{partial "settings/-pills"}}
+
+<br/>
+
+{{#if searchFor}}
+<div class="alert alert-info" role="alert">
+  <span class="badge">{{searchResult.length}}</span> attributes match your search.
+</div>
+{{/if}}
+
+<table>
+  <thead>
+    <th>&nbsp;</th>
+    <th>Key</th>
+    <th>Value</th>
+  </thead>
+  
+  <tbody>
+    {{#each searchResult}}
+    <tr>
+      <td><span class="glyphicon glyphicon-cog"/>
+      <td>{{unbound id}}</td>
+      <td>{{unbound value}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

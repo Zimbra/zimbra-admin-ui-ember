@@ -1,14 +1,5 @@
-<ol class="breadcrumb">
-  <li>{{#link-to "index"}}Home{{/link-to}}</li>
-  <li>{{#link-to "servers"}}Servers{{/link-to}}</li>
-  <li>{{#link-to "servers.server"}}{{name}}{{/link-to}}</li>
-</ol>
-
-<ul class="nav nav-pills">
-  <li>{{#link-to "servers.server.index" this}}General Information{{/link-to}}</li>
-  <li>{{#link-to "servers.server.services" this}}Services{{/link-to}}</li>
-  <li class="active">{{#link-to "servers.server.mta" this}}MTA{{/link-to}}</li>
-</ul>
+{{partial "servers/server/-breadcrumbs"}}
+{{partial "servers/server/-pills"}}
 
 <br/>
 

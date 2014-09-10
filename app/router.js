@@ -25,7 +25,12 @@ Router.map(function() {
       this.route('services');
     });
   });
+  this.resource('settings', function() {
+    this.route('general');
+    this.route('mta');
+  });
   this.route('zimlets');
+  this.route('settings/general');
 });
 
 export default Router;

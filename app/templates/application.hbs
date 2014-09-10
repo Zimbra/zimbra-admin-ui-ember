@@ -16,6 +16,9 @@
           </a>
         </li>
       </ul>
+      <div class="col-sm-3 pull-right">
+        {{outlet search}}
+      </div>
     </div>
   </div>
 </nav>
@@ -37,6 +40,7 @@
         <li>{{#link-to "servers" class="glyphicon glyphicon-tasks"}}Servers{{/link-to}}</li>
         <li>{{#link-to "zimlets" class="glyphicon glyphicon-link"}}Zimlets{{/link-to}}</li>
         <li>{{#link-to "extensions" class="glyphicon glyphicon-link"}}Extensions{{/link-to}}</li>
+        <li>{{#link-to "settings" class="glyphicon glyphicon-cog"}}Global Settings{{/link-to}}</li>
       </ul>
       <div class="panel-heading">Tools</div>
       <ul class="nav nav-pills nav-stacked panel-body">

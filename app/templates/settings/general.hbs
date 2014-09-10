@@ -2,3 +2,37 @@
 {{partial "settings/-pills"}}
 
 <br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">General Information a{{content.length}} b{{content}} c{{config}} d{{length}} e{{model}} f</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon">Most results returned by GAL search</span>
+      {{input value=zimbraGalMaxResults}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Default domain</span>
+      {{input value=zimbraDefaultDomainName}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Maximum number of scheduled tasks that can run simultaneously</span>
+      {{input value=zimbraScheduledTaskNumThreads}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Sleep time between subsequent mailbox purges</span>
+      {{input value=zimbraMailPurgeSleepInterval}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Maximum size of a file uploaded from the desktop (KB)</span>
+      {{input value=zimbraMailContentMaxSize}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Admin help URL</span>
+      {{input value=zimbraHelpAdminURL}}
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">Delegated admin help URL</span>
+      {{input value=zimbraHelpDelegatedURL}}
+    </div>
+  </div>
+</div>

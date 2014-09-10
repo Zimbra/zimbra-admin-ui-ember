@@ -30,7 +30,6 @@ Router.map(function() {
     this.route('mta');
   });
   this.route('zimlets');
-  this.route('settings/general');
 });
 
 export default Router;

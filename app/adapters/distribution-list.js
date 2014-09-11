@@ -2,6 +2,21 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
 
+var attrs = [
+  'description',
+  'displayName',
+  'uid',
+  'zimbraId',
+  'zimbraIsAdminAccount',
+  'zimbraIsAdminGroup',
+  'zimbraIsDelegatedAdminAccount',
+  'zimbraIsExternalVirtualAccount',
+  'zimbraIsSystemAccount',
+  'zimbraIsSystemResource',
+  'zimbraMailHost',
+  'zimbraMailStatus'
+];
+
 //
 // findAll 
 //
@@ -22,7 +37,7 @@ var findQuery = function (store, type, query) {
         applyConfig: false,
         applyCos: false,
         types: 'distributionlists,dynamicgroups',
-        attrs: 'displayName,zimbraId,zimbraMailHost,uid,description,zimbraIsAdminGroup,zimbraMailStatus,zimbraIsDelegatedAdminAccount,zimbraIsAdminAccount,zimbraIsSystemResource,zimbraIsSystemAccount,zimbraIsExternalVirtualAccount"',
+        attrs: attrs.join(','),
         query: generateQuery(query)
       };
       return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:SearchDirectoryRequest', opts);

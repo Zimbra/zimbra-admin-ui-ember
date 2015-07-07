@@ -1,7 +1,10 @@
-# zimbra-ember-data
+# zimbra-admin-ui-ember
 
-This module provides an Ember Data front-end to the Zimbra SOAP APIs. Its purpose is to make it easy to
-perform administrative integrations with Zimbra, from my favorite MVC framework.
+This project started off as an Ember Data front-end to the Zimbra SOAP APIs. Its purpose was to make it easier to get started with managing a Zimbra server from JavaScript.
+
+Later a Bootstrap based adaptive UI was added, to put the Ember Data bindings through their paces. This makes the project a good launchpad for a custom administrative UI.
+
+Watch the [Inroduction Video](http://youtu.be/zSKwlW7L5uw) on YouTube.
 
 ## Goals
 

@@ -12,10 +12,10 @@ export default Ember.ArrayController.extend({
     if (searchFor) {
       var regex = new RegExp(searchFor, 'i');
       return config.filter(function(item) {
-        return regex.test(Em.get(item,'name'))
-          || regex.test(Em.get(item,'zimbraAccountStatus'))
-          || regex.test(Em.get(item,'displayName'))
-          || regex.test(Em.get(item,'description'));
+        return regex.test(Ember.get(item,'name'))
+          || regex.test(Ember.get(item,'zimbraAccountStatus'))
+          || regex.test(Ember.get(item,'displayName'))
+          || regex.test(Ember.get(item,'description'));
       });
     } else {
       return config;

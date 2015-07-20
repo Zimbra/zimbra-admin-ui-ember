@@ -1,14 +1,16 @@
 import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
+import config from './config/environment';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 var App = Ember.Application.extend({
-  modulePrefix: 'zimbra-ember-data', // TODO: loaded via config
+  modulePrefix: config.modulePrefix,
+  podModulePrefix: config.podModulePrefix,
   Resolver: Resolver
 });
 
-loadInitializers(App, 'zimbra-ember-data');
+loadInitializers(App, config.modulePrefix);
 
 export default App;

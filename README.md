@@ -30,6 +30,7 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at http://localhost:4200.
+* If you're using a localhost based Zimbra server, you might want to [launch your browser with CORS disabled](https://blog.nraboy.com/2014/08/bypass-cors-errors-testing-apis-locally/).
 
 ### Code Generators
 

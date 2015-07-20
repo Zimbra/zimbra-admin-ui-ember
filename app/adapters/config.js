@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 import zimbra from 'zimbra-ember-data/utils/zimbra';
+import config from '../config/environment';
 
   
 //
@@ -17,10 +18,10 @@ var findAll = function (store, type) {
 var findQuery = function (store, type, query) {
   var promise = new Ember.RSVP.Promise(function(resolve, reject) {
     var asAdmin = true;
-    zimbra.auth(ZimbraEmberDataENV.zimbra.soap.adminUrl, ZimbraEmberDataENV.zimbra.admin.user, ZimbraEmberDataENV.zimbra.admin.pass, asAdmin).then(function(authRes) {
+    zimbra.auth(config.zimbra.soap.adminUrl, config.zimbra.admin.user, config.zimbra.admin.pass, asAdmin).then(function(authRes) {
       var zimbraAuthToken = authRes.authToken[0]._content;
       var opts = {};
-      return zimbra.request(ZimbraEmberDataENV.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:GetAllConfigRequest', opts);
+      return zimbra.request(config.zimbra.soap.adminUrl, zimbraAuthToken, 'zimbraAdmin:GetAllConfigRequest', opts);
     
     }).then(
       function(res) {

@@ -5,7 +5,7 @@ moduleFor('route:settings/index', 'SettingsIndexRoute', {
   // needs: ['controller:foo']
 });
 
-test('it exists', function() {
+test('it exists', function(assert) {
   var route = this.subject();
-  ok(route);
+  assert.ok(route);
 });

@@ -3,7 +3,7 @@ import { test, moduleFor } from 'ember-qunit';
 moduleFor('view:application', 'ApplicationView');
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var view = this.subject();
-  ok(view);
+  assert.ok(view);
 });

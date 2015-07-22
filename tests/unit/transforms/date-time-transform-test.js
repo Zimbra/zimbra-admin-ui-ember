@@ -6,7 +6,7 @@ moduleFor('transform:date-time-transform', 'DateTimeTransformTransform', {
 });
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var transform = this.subject();
-  ok(transform);
+  assert.ok(transform);
 });

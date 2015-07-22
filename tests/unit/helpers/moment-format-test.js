@@ -1,9 +1,10 @@
-import { moment } from 'zimbra-ember-data/helpers/moment-format';
+import { test, module } from 'ember-qunit';
+import { momentFormatHelper } from '../../../helpers/moment-format';
 
-module('MomentFormatHelper');
+module('Unit | Helper | MomentFormatHelper');
 
 // Replace this with your real tests.
-test('it works', function() {
-  var result = moment(42);
-  ok(result);
+test('it works', function(assert) {
+  var result = momentFormatHelper(42);
+  assert.ok(result);
 });

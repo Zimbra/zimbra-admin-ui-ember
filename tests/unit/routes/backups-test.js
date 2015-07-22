@@ -1,6 +1,6 @@
 import { test, moduleFor } from 'ember-qunit';
 
-moduleFor('route:cos', 'CosRoute', {
+moduleFor('route:backups', 'BackupsRoute', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

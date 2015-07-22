@@ -1,6 +1,6 @@
 import { test, moduleFor } from 'ember-qunit';
 
-moduleFor('transform:yesno', 'YesnoTransform', {
+moduleFor('transform:boolean-yesno', 'BooleanYesNoTransform', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });

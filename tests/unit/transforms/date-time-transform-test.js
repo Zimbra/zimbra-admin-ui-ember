@@ -1,6 +1,6 @@
 import { test, moduleFor } from 'ember-qunit';
 
-moduleFor('transform:date-time-transform', 'DateTimeTransformTransform', {
+moduleFor('transform:date-time-transform', 'DateTimeTransform', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });

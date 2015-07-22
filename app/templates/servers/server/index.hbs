@@ -6,7 +6,7 @@
 <form class="panel panel-default">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-tasks"/>
-    {{name}}
+    {{model.name}}
   </div>
   <div class="panel-body">
     <div class="row">
@@ -15,12 +15,12 @@
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">ID</span>
-          {{id}}
+          {{model.id}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
       </div>
     </div>
@@ -32,31 +32,31 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Display name</span>
-      {{name}}
+      {{model.name}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Service host name</span>
-      {{input value=zimbraServiceHostname}}
+      {{input value=model.zimbraServiceHostname}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">LMTP advertised name</span>
-      {{input value=zimbraLmtpAdvertisedName}}
+      {{input value=model.zimbraLmtpAdvertisedName}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">LMTP bind address</span>
-      {{input value=zimbraLmtpBindAddress}}
+      {{input value=model.zimbraLmtpBindAddress}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Maximum number of scheduled tasks that can run simultaneously</span>
-      {{input value=zimbraScheduledTaskNumThreads}}
+      {{input value=model.zimbraScheduledTaskNumThreads}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Sleep time between subsequent mailbox purges</span>
-      {{input value=zimbraMailPurgeSleepInterval}}
+      {{input value=model.zimbraMailPurgeSleepInterval}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">This server is a reverse proxy lookup target</span>
-      {{input type="checkbox" checked=zimbraReverseProxyLookupTarget}}
+      {{input type="checkbox" checked=model.zimbraReverseProxyLookupTarget}}
     </div>
   </div>
 </form>
@@ -66,11 +66,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Description</span>
-      {{textarea value=description}}
+      {{textarea value=model.description}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Notes</span>
-      {{textarea value=notes}}
+      {{textarea value=model.notes}}
     </div>
   </div>
 </div>

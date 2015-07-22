@@ -11,11 +11,11 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each cos in model}}
     <tr>
       <td><span class="glyphicon glyphicon-usd"/></td>
-      <td>{{name}}</td>
-      <td>{{description}}</td>
+      <td>{{cos.name}}</td>
+      <td>{{cos.description}}</td>
     </tr>
     {{/each}}
   </tbody>

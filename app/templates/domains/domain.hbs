@@ -1,13 +1,13 @@
 <ol class="breadcrumb">
   <li>{{#link-to "index"}}Home{{/link-to}}</li>
   <li>{{#link-to "domains"}}Domains{{/link-to}}</li>
-  <li class="active">{{name}}</li>
+  <li class="active">{{model.name}}</li>
 </ol>
 
 <form class="panel panel-default">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-globe"/>
-    {{name}}
+    {{model.name}}
   </div>
   <div class="panel-body">
     <div class="row">
@@ -16,16 +16,16 @@
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">ID</span>
-          {{id}}
+          {{model.id}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
         <div class="input-group">
           <span class="input-group-addon">Status</span>
-          {{status}}
+          {{model.status}}
         </div>
       </div>
     </div>
@@ -42,23 +42,23 @@
     
     <div class="input-group">
       <span class="input-group-addon">Time zone</span>
-      {{input value=zimbraPrefTimeZoneId}}
+      {{input value=model.zimbraPrefTimeZoneId}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Public service host name</span>
-      {{input value=zimbraPublicServiceHostname}}
+      {{input value=model.zimbraPublicServiceHostname}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Public service protocol</span>
-      {{input value=zimbraPublicServiceProtocol}}
+      {{input value=model.zimbraPublicServiceProtocol}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Public service port</span>
-      {{input value=zimbraPublicServicePort}}
+      {{input value=model.zimbraPublicServicePort}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Inbound SMTP host name</span>
-      {{input value=zimbraDNSCheckHostname}}
+      {{input value=model.zimbraDNSCheckHostname}}
     </div>
   </div>
 </form>
@@ -68,11 +68,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Description</span>
-      {{textarea value=description}}
+      {{textarea value=model.description}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Notes</span>
-      {{textarea value=notes}}
+      {{textarea value=model.notes}}
     </div>
   </div>
 </div>

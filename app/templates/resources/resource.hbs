@@ -6,38 +6,38 @@
 
 <form class="panel panel-default">
   <div class="panel-heading">
-    {{resource-icon zimbraCalResType}}
-    {{displayName}}
+    {{resource-icon model.zimbraCalResType}}
+    {{model.displayName}}
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">Email</span>
-          {{name}}
+          {{model.name}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Type</span>
-          {{zimbraCalResType}}
+          {{model.zimbraCalResType}}
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">ID</span>
-          {{id}}
+          {{model.id}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
         <div class="input-group">
           <span class="input-group-addon">Mail Server</span>
-          {{zimbraMailHost}}
+          {{model.zimbraMailHost}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Status</span>
-          {{zimbraAccountStatus}}
+          {{model.zimbraAccountStatus}}
         </div>
       </div>
     </div>
@@ -49,12 +49,12 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Name</span>
-      {{input value=displayName}}
+      {{input value=model.displayName}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Email</span>
-      {{input value=uid}}
-      @{{view Ember.Select content=domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
+      {{input value=model.uid}}
+      @{{view "select" content=model.domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
     </div>
   </div>
 </form>
@@ -64,12 +64,12 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Status</span>
-      {{input type="checkbox" checked=active}} Active
+      {{input type="checkbox" checked=model.active}} Active
     </div>
     <div class="input-group">
       <span class="input-group-addon">Class of Service</span>
-      {{view Ember.Select content=coses selection=zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name" disabled=true}}
-      {{input type="checkbox" checked=cosAuto disabled=true}} Auto
+      {{view "select" content=model.coses selection=model.zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name" disabled=true}}
+      {{input type="checkbox" checked=model.cosAuto disabled=true}} Auto
     </div>
   </div>
 </div>
@@ -79,11 +79,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Description</span>
-      {{textarea value=description}}
+      {{textarea value=model.description}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Notes</span>
-      {{textarea value=notes}}
+      {{textarea value=model.notes}}
     </div>
   </div>
 </div>

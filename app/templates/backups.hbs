@@ -14,14 +14,14 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each backup in model}}
     <tr>
       <td><span class="glyphicon glyphicon-save"/></td>
-      <td>{{server.name}}</td>
-      <td>{{label}}</td>
-      <td>{{moment-format start format="lll"}}</td>
-      <td>{{moment-format end format="lll"}}</td>
-      <td><span {{bind-attr class=":label hasErrors:label-danger hasWarnings:label-warning isSuccess:label-success"}}>{{status}}</span></td>
+      <td>{{backup.server.name}}</td>
+      <td>{{backup.label}}</td>
+      <td>{{moment-format backup.start format="lll"}}</td>
+      <td>{{moment-format backup.end format="lll"}}</td>
+      <td><span {{bind-attr class=":label hasErrors:label-danger hasWarnings:label-warning isSuccess:label-success"}}>{{backup.status}}</span></td>
     </tr>
     {{/each}}
   </tbody>

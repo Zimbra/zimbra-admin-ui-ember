@@ -7,18 +7,18 @@
 <form class="panel panel-default">
   <div class="panel-heading">
     <span class="glyphicon glyphicon-user"></span>
-    {{displayName}}
+    {{model.displayName}}
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">Email</span>
-          {{name}}
+          {{model.name}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Quota</span>
-          ? of {{zimbraMailQuota}}
+          ? of {{model.zimbraMailQuota}}
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
@@ -28,21 +28,21 @@
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
         <div class="input-group">
           <span class="input-group-addon">Server</span>
-          {{zimbraMailHost}}
+          {{model.zimbraMailHost}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Status</span>
-          {{zimbraMailStatus}}
+          {{model.zimbraMailStatus}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Last Login</span>
-          {{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="never"}}
-          (at {{moment-format zimbraLastLogonTimestamp format="hh:mm a"}})
+          {{moment-format model.zimbraLastLogonTimestamp format="fromNow" defaultValue="never"}}
+          (at {{moment-format model.zimbraLastLogonTimestamp format="hh:mm a"}})
         </div>
       </div>
     </div>
@@ -54,28 +54,28 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Account name</span>
-      {{input value=uid}}
-      @{{view Ember.Select content=domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
+      {{input value=model.uid}}
+      @{{view "select" content=model.domains selection=selectedDomain optionValuePath="content.id" optionLabelPath="content.name"}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">First name</span>
-      {{input value=givenName}}
+      {{input value=model.givenName}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Middle initial</span>
-      {{input value=initials}}
+      {{input value=model.initials}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Last name</span>
-      {{input value=sn}}
+      {{input value=model.sn}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Display name</span>
-      {{input value=displayName}}
+      {{input value=model.displayName}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Hide in GAL</span>
-      {{input type="checkbox" checked=zimbraHideInGal}}
+      {{input type="checkbox" checked=model.zimbraHideInGal}}
     </div>
   </div>
 </form>
@@ -85,16 +85,16 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Status</span>
-      {{input value=zimbraMailStatus}}
+      {{input value=model.zimbraMailStatus}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Class of Service</span>
-      {{view Ember.Select content=coses selection=zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name"}}
-      {{input type="checkbox" checked=cosAuto}} Auto
+      {{view "select" content=model.coses selection=model.zimbraCOSId optionValuePath="content.id" optionLabelPath="content.name"}}
+      {{input type="checkbox" checked=model.cosAuto}} Auto
     </div>
     <div class="input-group">
       <span class="input-group-addon">Global Administrator</span>
-      {{input type="checkbox" checked=zimbraIsAdminAccount}}
+      {{input type="checkbox" checked=model.zimbraIsAdminAccount}}
     </div>
   </div>
 </div>
@@ -104,11 +104,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Description</span>
-      {{textarea value=description}}
+      {{textarea value=model.description}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Notes</span>
-      {{textarea value=notes}}
+      {{textarea value=model.notes}}
     </div>
   </div>
 </div>

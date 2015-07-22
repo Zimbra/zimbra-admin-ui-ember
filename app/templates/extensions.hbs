@@ -14,17 +14,17 @@
   </thead>
   
   <tbody>
-    {{#each this}}
-    <tr>
-      <td><span class="glyphicon glyphicon-link"/></td>
-      <td>{{name}}</td>
-      <td>{{displayName}}</td>
-      <td>{{description}}</td>
-      <td>{{version}}</td>
-      <td>{{#if enabled}}Enabled{{else}}Disabled{{/if}}</td>
-    </tr>
+    {{#each extension in model}}
+      <tr>
+        <td><span class="glyphicon glyphicon-link"/></td>
+        <td>{{extension.name}}</td>
+        <td>{{extension.displayName}}</td>
+        <td>{{extension.description}}</td>
+        <td>{{extension.version}}</td>
+        <td>{{#if extension.enabled}}Enabled{{else}}Disabled{{/if}}</td>
+      </tr>
     {{else}}
-    <tr><td colspan="5">None</td></tr>
+      <tr><td colspan="5">None</td></tr>
     {{/each}}
   </tbody>
 </table>

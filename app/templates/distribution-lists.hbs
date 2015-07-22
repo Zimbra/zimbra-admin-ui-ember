@@ -14,14 +14,14 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each dl in model}}
     <tr>
       <td><span class="glyphicon glyphicon-th-list"/></td>
-      <td>{{name}}</td>
-      <td>{{displayName}}</td>
-      <td>{{zimbraMailStatus}}</td>
-      <td>{{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}</td>
-      <td>{{description}}</td>
+      <td>{{dl.name}}</td>
+      <td>{{dl.displayName}}</td>
+      <td>{{dl.zimbraMailStatus}}</td>
+      <td>{{moment-format dl.zimbraLastLogonTimestamp format="fromNow" defaultValue="Never logged in"}}</td>
+      <td>{{dl.description}}</td>
     </tr>
     {{/each}}
   </tbody>

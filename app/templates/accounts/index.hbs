@@ -20,14 +20,14 @@
   </thead>
   
   <tbody>
-    {{#each searchResult}}
+    {{#each account in searchResult}}
     <tr>
       <td><span class="glyphicon glyphicon-user"/></td>
-      <td>{{#link-to "accounts.account" this}}{{name}}{{/link-to}}</td>
-      <td>{{displayName}}</td>
-      <td>{{zimbraAccountStatus}}</td>
-      <td>{{moment-format zimbraLastLogonTimestamp format="fromNow" defaultValue="never"}}</td>
-      <td>{{description}}</td>
+      <td>{{#link-to "accounts.account" account}}{{account.name}}{{/link-to}}</td>
+      <td>{{account.displayName}}</td>
+      <td>{{account.zimbraAccountStatus}}</td>
+      <td>{{moment-format account.zimbraLastLogonTimestamp format="fromNow" defaultValue="never"}}</td>
+      <td>{{account.description}}</td>
     </tr>
     {{/each}}
   </tbody>

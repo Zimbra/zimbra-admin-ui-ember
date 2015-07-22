@@ -17,11 +17,11 @@
   </thead>
   
   <tbody>
-    {{#each searchResult}}
+    {{#each setting in searchResult}}
     <tr>
       <td><span class="glyphicon glyphicon-cog"/></td>
-      <td>{{unbound id}}</td>
-      <td>{{unbound value}}</td>
+      <td>{{unbound setting.id}}</td>
+      <td>{{unbound setting.value}}</td>
     </tr>
     {{/each}}
   </tbody>

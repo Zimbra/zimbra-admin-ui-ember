@@ -15,12 +15,12 @@
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">ID</span>
-          {{id}}
+          {{model.id}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
       </div>
     </div>
@@ -32,11 +32,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">LDAP</span>
-      {{input type="checkbox" checked=zimbraServiceEnabled.ldap}}
+      {{input type="checkbox" checked=model.zimbraServiceEnabled.ldap}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Mailbox</span>
-      {{input type="checkbox" checked=zimbraServiceEnabled.mailbox}}
+      {{input type="checkbox" checked=model.zimbraServiceEnabled.mailbox}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Reverse proxy</span>
@@ -44,7 +44,7 @@
     </div>
     <div class="input-group">
       <span class="input-group-addon">MTA</span>
-      {{input type="checkbox" checked=zimbraServiceEnabled.mta}}
+      {{input type="checkbox" checked=model.zimbraServiceEnabled.mta}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Policyd</span>

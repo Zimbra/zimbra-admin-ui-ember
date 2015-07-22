@@ -13,13 +13,13 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each alias in model}}
     <tr>
       <td><span class="glyphicon glyphicon-circle-arrow-right"/></td>
-      <td>{{name}}</td>
-      <td>{{#link-to "accounts.account" zimbraAliasTargetId}}{{targetName}}{{/link-to}}</td>
-      <td>{{type}}</td>
-      <td>{{description}}</td>
+      <td>{{alias.name}}</td>
+      <td>{{#link-to "accounts.account" alias.zimbraAliasTargetId}}{{targetName}}{{/link-to}}</td>
+      <td>{{alias.type}}</td>
+      <td>{{alias.description}}</td>
     </tr>
     {{/each}}
   </tbody>

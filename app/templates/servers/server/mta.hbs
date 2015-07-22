@@ -15,12 +15,12 @@
       <div class="col-sm-12 col-md-6">
         <div class="input-group">
           <span class="input-group-addon">ID</span>
-          {{id}}
+          {{model.id}}
         </div>
         <div class="input-group">
           <span class="input-group-addon">Created</span>
-          {{moment-format created format="fromNow"}}
-          ({{moment-format created format="lll"}})
+          {{moment-format model.created format="fromNow"}}
+          ({{moment-format model.created format="lll"}})
         </div>
       </div>
     </div>
@@ -32,11 +32,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Enable authentication</span>
-      {{input type="checkbox" checked=zimbraMtaSaslAuthEnable}}
+      {{input type="checkbox" checked=model.zimbraMtaSaslAuthEnable}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">TLS authentication only</span>
-      {{input type="checkbox" checked=zimbraMtaTlsAuthOnly}}
+      {{input type="checkbox" checked=model.zimbraMtaTlsAuthOnly}}
     </div>
   </div>
 </form>
@@ -47,27 +47,27 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Web mail MTA Port</span>
-      {{input value=zimbraSmtpPort}}
+      {{input value=model.zimbraSmtpPort}}
     </div>
     <div class="input-group"> 
       <span class="input-group-addon">Relay MTA for external delivery</span>
-      {{input value=zimbraMtaRelayHostServer}} {{input value=zimbraMtaRelayHostPort}}
+      {{input value=model.zimbraMtaRelayHostServer}} {{input value=model.zimbraMtaRelayHostPort}}
     </div>
     <div class="input-group"> 
       <span class="input-group-addon">Relay MTA for external delivery (fallback)</span>
-      {{input value=zimbraMtaFallbackRelayHostServer}} {{input value=zimbraMtaFallbackRelayHostPort}}
+      {{input value=model.zimbraMtaFallbackRelayHostServer}} {{input value=model.zimbraMtaFallbackRelayHostPort}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Web mail MTA timeout (secs)</span>
-      {{input value=zimbraSmtpTimeout}}
+      {{input value=model.zimbraSmtpTimeout}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">MTA trusted networks</span>
-      {{textarea value=zimbraMtaMyNetworks}}
+      {{textarea value=model.zimbraMtaMyNetworks}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Enable DNS lookups</span>
-      {{input type="checkbox" checked=zimbraMtaDnsLookupsEnabled}}
+      {{input type="checkbox" checked=model.zimbraMtaDnsLookupsEnabled}}
     </div>
   </div>
 </form>
@@ -78,11 +78,11 @@
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-addon">Enable milter server</span>
-      {{input type="checkbox" checked=zimbraMilterServerEnabled}}
+      {{input type="checkbox" checked=model.zimbraMilterServerEnabled}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Milter server bind address</span>
-      {{input value=zimbraMilterBindAddress}}
+      {{input value=model.zimbraMilterBindAddress}}
     </div>
     <div class="input-group">
       <span class="input-group-addon">Milter server bind port</span>

@@ -11,11 +11,11 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each server in model}}
     <tr>
       <td><span class="glyphicon glyphicon-tasks"/></td>
-      <td>{{#link-to "servers.server" this}}{{name}}{{/link-to}}</td>
-      <td>{{description}}</td>
+      <td>{{#link-to "servers.server" server}}{{server.name}}{{/link-to}}</td>
+      <td>{{server.description}}</td>
     </tr>
     {{/each}}
   </tbody>

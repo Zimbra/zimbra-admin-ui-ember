@@ -13,13 +13,13 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each resource in model}}
     <tr>
-      <td>{{resource-icon zimbraCalResType}}</td>
-      <td>{{#link-to "resources.resource" this}}{{name}}{{/link-to}}</td>
-      <td>{{displayName}}</td>
-      <td>{{zimbraAccountStatus}}</td>
-      <td>{{description}}</td>
+      <td>{{resource-icon resource.zimbraCalResType}}</td>
+      <td>{{#link-to "resources.resource" resource}}{{resource.name}}{{/link-to}}</td>
+      <td>{{resource.displayName}}</td>
+      <td>{{resource.zimbraAccountStatus}}</td>
+      <td>{{resource.description}}</td>
     </tr>
     {{/each}}
   </tbody>

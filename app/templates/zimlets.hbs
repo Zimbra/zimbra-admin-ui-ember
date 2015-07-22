@@ -14,14 +14,14 @@
   </thead>
   
   <tbody>
-    {{#each this}}
+    {{#each zimlet in model}}
     <tr>
       <td><span class="glyphicon glyphicon-link"/></td>
-      <td>{{name}}</td>
-      <td>{{displayName}}</td>
-      <td>{{description}}</td>
-      <td>{{version}}</td>
-      <td>{{#if enabled}}Enabled{{else}}Disabled{{/if}}</td>
+      <td>{{zimlet.name}}</td>
+      <td>{{zimlet.displayName}}</td>
+      <td>{{zimlet.description}}</td>
+      <td>{{zimlet.version}}</td>
+      <td>{{#if zimlet.enabled}}Enabled{{else}}Disabled{{/if}}</td>
     </tr>
     {{/each}}
   </tbody>
